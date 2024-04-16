@@ -13,5 +13,6 @@ namespace Ejemplo02
         Task AddUserAsync(User user);
         Task UpdateUserAsync(User user);
         Task DeleteUserAsync(int userId);
+
     }
 }

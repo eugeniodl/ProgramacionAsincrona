@@ -9,6 +9,7 @@ namespace Ejemplo02
     public class UserRepository : IUserRepository
     {
         private List<User> _users = new List<User>();
+
         public async Task AddUserAsync(User user)
         {
             await Task.Delay(100);
@@ -19,7 +20,7 @@ namespace Ejemplo02
         {
             await Task.Delay(100);
             var userRemove = await GetUserByIdAsync(userId);
-            if (userRemove != null)
+            if(userRemove != null)
                 _users.Remove(userRemove);
         }
 
@@ -39,7 +40,7 @@ namespace Ejemplo02
         {
             await Task.Delay(100);
             var existingUser = await GetUserByIdAsync(user.Id);
-            if (existingUser != null)
+            if(existingUser != null)
             {
                 existingUser.Name = user.Name;
                 existingUser.Email = user.Email;
