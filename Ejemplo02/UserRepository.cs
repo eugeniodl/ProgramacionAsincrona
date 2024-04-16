@@ -9,7 +9,6 @@ namespace Ejemplo02
     public class UserRepository : IUserRepository
     {
         private List<User> _users = new List<User>();
-
         public async Task AddUserAsync(User user)
         {
             await Task.Delay(100);
@@ -19,9 +18,9 @@ namespace Ejemplo02
         public async Task DeleteUserAsync(int userId)
         {
             await Task.Delay(100);
-            var userToRemove = await GetUserByIdAsync(userId);
-            if (userToRemove != null)
-                _users.Remove(userToRemove);
+            var userRemove = await GetUserByIdAsync(userId);
+            if (userRemove != null)
+                _users.Remove(userRemove);
         }
 
         public async Task<IEnumerable<User>> GetAllUsersAsync()

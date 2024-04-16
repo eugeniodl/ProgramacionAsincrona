@@ -17,11 +17,20 @@ namespace WinAsyncAwait
             InitializeComponent();
         }
 
-        private async void btnIniciar_Click(object sender, EventArgs e)
+        private async void btnIniciar_ClickAsync(object sender, EventArgs e)
         {
             loadingGIF.Visible = true;
             await EsperarAsync();
+            var nombre = txtInput.Text;
+            var saludo = await ObtenerSaludoAsync(nombre);
+            MessageBox.Show(saludo);
             loadingGIF.Visible = false;
+        }
+
+        private async Task<string> ObtenerSaludoAsync(string nombre)
+        {
+            await EsperarAsync();
+            return $"Hola, {nombre}";
         }
 
         private async Task EsperarAsync()
